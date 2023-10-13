@@ -27,4 +27,37 @@
  }
  .invisible{
   display: none;
+  /* background-color: rgb(63, 63, 63); */
  }
+ .home-photo{
+  border-radius: 40px;
+  width:  590px;
+  height: 450px;
+ }
+  .flash-disappear{
+  position: absolute;
+  width: 50%;
+  z-index: 5;
+
+  animation: fade         7s forwards;
+  -webkit-animation: fade 7s forwards;
+  -moz-animation: fade    7s forwards;
+  -o-animation: fade      7s forwards;
+  -ms-animation: fade     7s forwards;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

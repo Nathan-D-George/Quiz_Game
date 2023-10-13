@@ -1,10 +1,14 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  
   has_one_attached :photo
+
+  has_many :scores
+
+  enum role:       %i[player ADMIN]
+  enum difficulty: %i[easy medium hard]
 
   after_commit :add_default_avatar, on: %i[create update]
 

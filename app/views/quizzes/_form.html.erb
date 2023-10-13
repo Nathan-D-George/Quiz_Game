@@ -1,0 +1,14 @@
+<%= form_with model:@quiz, local: true do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, class:'form-control' %>
+  </p>
+  <% if !@quiz.new_record? %>
+    <%= f.select :id, [@quiz.id], {}, {class:'invisible'} %>
+  <% end %>
+  <p>
+    <%= f.label  :difficulty %>
+    <%= f.select :difficulty, ['easy', 'medium','hard'], {}, {class:'form-select'} %>
+  </p>
+  <%= f.submit "Submit", class:'btn btn-primary col-2' %>
+<% end %>

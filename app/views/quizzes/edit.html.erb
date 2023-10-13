@@ -1,0 +1,7 @@
+<h1> Edit Quiz </h1>
+<div class='d-flex align-items-center justify-content-center'>
+  <div class='col-md-6'>
+    <%= render 'form' %>
+    <%= link_to "Back", show_quiz_path(id: @quiz.id), class:'btn btn-secondary col-2 mt-3' %>
+  </div>
+</div>

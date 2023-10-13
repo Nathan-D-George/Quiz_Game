@@ -1,10 +1,30 @@
 <h1> Home </h1>
-
-<% if current_user.present? %>
-  <%= link_to "Log Out", destroy_user_session_path, data:{turbo_method: :delete, turbo_confirm: "Log out?"}, class:'btn btn-danger' %>
-  <%= link_to "Edit Account", edit_user_registration_path, class:'btn btn-primary' %>
-<% else %>
-  <%= link_to "Sign Up", new_user_registration_path, class:'btn btn-primary' %>
-  <%= link_to "Sign In", new_user_session_path, class:'btn btn-success' %>
-<% end %>
-<%= fa_icon "gg" %>
+<div class='d-flex align-items-center justify-content-center'>
+  <% if current_user.present? %>
+    <div>
+      <div class='col-md-12'>
+        <%= image_tag("https://images.unsplash.com/photo-1539628399213-d6aa89c93074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cXVpenxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60", class:'home-photo') %>
+      </div>
+      <div class='d-flex align-items-center justify-content-center mt-3'>
+        <%= link_to "Log Out",      destroy_user_session_path,   class:'btn btn-danger  col-6', data:{turbo_method: :delete, turbo_confirm: "Log out?"} %>
+        <%= link_to "Edit Account", edit_user_registration_path, class:'btn btn-primary col-6' %>
+      </div>
+      <div>
+        <%= link_to "PLAY", '#', class:'btn col-12 mt-3', style:'color:white; height: 50px; background-color: #d70909;' %>
+      </div>
+      <% if current_user.role == "ADMIN" %>
+        <%= link_to "Create Quiz", new_quiz_path, class:'btn btn-primary col-12 mt-3' %>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <div class='col-md-12'>
+        <%= image_tag("https://media.istockphoto.com/id/1470023265/photo/question-mark-icon-on-blue-background-speech-bubble-clipping-path.webp?b=1&s=170667a&w=0&k=20&c=wrSJl4tRTsMWGYgedjDbU7uSXG6PUp-oOD_UX7jMfVQ=", class:'home-photo') %>
+      </div>
+      <div class='d-flex align-items-center justify-content-center mt-4'>
+        <%= link_to "Sign Up", new_user_registration_path, class:'btn btn-primary col-6' %>
+        <%= link_to "Sign In", new_user_session_path,      class:'btn btn-success col-6' %>
+      </div>
+    </div>
+  <% end %>
+</div>
